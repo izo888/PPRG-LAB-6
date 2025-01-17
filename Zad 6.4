@@ -1,0 +1,28 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    // Wczytujemy od użytkownika tekst:
+    cout << "Podaj tekst: ";
+    string tekst;
+    getline(cin, tekst);   // wczytujemy całe zdanie z ewentualnymi spacjami
+
+    // Wczytujemy od użytkownika liczbę n:
+    cout << "Ile razy powtorzyc? ";
+    int n;
+    cin >> n;
+
+    // Konkatenacja
+    string wynik;
+    wynik.reserve(tekst.size() * n); 
+
+    for(int i = 0; i < n; i++) {
+        wynik += tekst;
+    }
+
+    // Wyświetlamy wynik
+    cout << "Skonkatenowany tekst: " << wynik << endl;
+
+    return 0;
+}
