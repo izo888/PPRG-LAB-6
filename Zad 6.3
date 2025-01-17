@@ -1,0 +1,55 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>    
+#include <string>
+using namespace std;
+
+
+struct Student {
+    int indexNumber; // numer indeksu
+    string name;     // imię
+    string surname;  // nazwisko
+};
+
+int main() {
+ 
+    vector<Student> students;
+
+   
+    int n;
+    cout << "Ilu studentow chcesz wprowadzic? ";
+    cin >> n;
+
+    // Wczytywanie danych
+    for (int i = 0; i < n; i++) {
+        Student s;
+        cout << "Podaj numer indeksu, imie i nazwisko studenta nr " << i+1 << ": ";
+        cin >> s.indexNumber >> s.name >> s.surname;
+        students.push_back(s);
+    }
+
+    // Wyświetlenie wektora przed sortowaniem
+    cout << "\nWektor przed sortowaniem:\n";
+    for (auto &st : students) {
+        cout << st.indexNumber << " " 
+             << st.name << " " 
+             << st.surname << "\n";
+    }
+
+    // Sortowanie po polu indexNumber rosnąco
+    sort(students.begin(), students.end(), 
+         [](const Student &a, const Student &b) {
+             return a.indexNumber < b.indexNumber;
+         }
+    );
+
+    // Wyświetlenie wektora po sortowaniu
+    cout << "\nWektor posortowany (wg numeru indeksu):\n";
+    for (auto &st : students) {
+        cout << st.indexNumber << " " 
+             << st.name << " " 
+             << st.surname << "\n";
+    }
+
+    return 0;
+}
