@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Podaj liczbę n: ";
+    cin >> n;
+
+    int licznik = 0;
+    for(int i = 1; i <= n; i++) {
+        // sprawdzamy jednocześnie dwa warunki:
+        // 1) i jest podzielne przez 5
+        // 2) i nie jest podzielne przez 3
+        if(i % 5 == 0 && i % 3 != 0) {
+            licznik++;
+        }
+    }
+
+    cout << "Liczba liczb naturalnych nie większych od " 
+         << n << ", podzielnych przez 5 i niepodzielnych przez 3, to: " 
+         << licznik << endl;
+
+    return 0;
+}
